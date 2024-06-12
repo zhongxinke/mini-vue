@@ -10,3 +10,21 @@
 const obj = readonly({ age: 10 });
 obj.age++; // 报错
 ```
+
+## 实现 isReactive 和 isReadonly
+
+实现 isReactive 和 isReadonly，可以通过特殊的 key，透过 get 来判断
+
+```js
+const obj = new Proxy(, {
+    get: (target, key) {
+        if (key === 'isReactive') {
+            return !isReadonly
+        }
+
+        if (key === 'isReadonly') {
+            return isReadonly
+        }
+    }
+})
+```
