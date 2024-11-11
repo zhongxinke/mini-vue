@@ -21,7 +21,6 @@ function setupStatefulComponent(instance) {
 
     if (setup) {
         const setupResult = setup();
-
         handleSetupResult(instance, setupResult)
     }
 }
@@ -39,7 +38,7 @@ function handleSetupResult(instance, setupResult) {
 function finishComponentSetup(instance) {
     const Component = instance.type;
 
-    if (!Component.render) {
-        instance.render = Component.render
-    }
+    // if (Component.render) {
+    instance.render = Component.render
+    // }
 }
