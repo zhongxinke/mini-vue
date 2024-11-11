@@ -1,4 +1,5 @@
 import { h } from "../../lib/guide-mini-vue.esm.js"
+import { Foo } from "./Foo.js"
 
 window.self = null
 export const App = {
@@ -11,7 +12,7 @@ export const App = {
             }
         },  [
             h("p", {}, 'hi'),
-            h("p", {}, this.msg),
+            h(Foo, {count: 1})
         ])
     },
     setup() {
