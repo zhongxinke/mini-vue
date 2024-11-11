@@ -5,7 +5,10 @@ export const App = {
     render() {
         window.self = this
         return h("div", {
-            id: 'root'
+            id: 'root',
+            onClick() {
+                console.log('clicked')
+            }
         },  [
             h("p", {}, 'hi'),
             h("p", {}, this.msg),
