@@ -3,17 +3,12 @@ import { Foo } from "./Foo.js"
 
 export const App = {
     render() {
-        return h("div", {
-            id: 'root',
-        },  [
-            h("p", {}, 'hi'),
-            h(Foo, {
-                count: 1, 
-                onAdd(...args) {
-                    console.log('add', args)
-                }
-            })
-        ])
+        const app = h("div", {}, "App")
+        const foo = h(Foo, {}, {
+            header: ({age}) => h("p", {}, `I am ${age} years old`),
+            footer: () => h("p", {}, "This is the footer")
+        })
+        return h("div", {}, [app, foo])
     },
     setup() {
         return {
